@@ -1,11 +1,11 @@
 <?php
 
-$settings = array (
+$settings = array(
     // If 'strict' is True, then the PHP Toolkit will reject unsigned
     // or unencrypted messages if it expects them signed or encrypted
     // Also will reject the messages if not strictly follow the SAML
     // standard: Destination, NameId, Conditions ... are validated too.
-    'strict' => true,
+    'strict' => false,
 
     // Enable debug mode (to print errors)
     'debug' => false,
@@ -17,24 +17,24 @@ $settings = array (
     'baseurl' => null,
 
     // Service Provider Data that we are deploying
-    'sp' => array (
+    'sp' => array(
         // Identifier of the SP entity  (must be a URI)
         'entityId' => '',
         // Specifies info about where and how the <AuthnResponse> message MUST be
         // returned to the requester, in this case our SP.
-        'assertionConsumerService' => array (
+        'assertionConsumerService' => array(
             // URL Location where the <Response> from the IdP will be returned
             'url' => '',
             // SAML protocol binding to be used when returning the <Response>
             // message.  Onelogin Toolkit supports for this endpoint the
-            // HTTP-POST binding only
+            // HTTP-Redirect binding only
             'binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST',
         ),
         // If you need to specify requested attributes, set a
         // attributeConsumingService. nameFormat, attributeValue and
         // friendlyName can be omitted. Otherwise remove this section.
         "attributeConsumingService"=> array(
-                "serviceName" => "SP test",
+                "ServiceName" => "SP test",
                 "serviceDescription" => "Test Service",
                 "requestedAttributes" => array(
                     array(
@@ -48,7 +48,7 @@ $settings = array (
         ),
         // Specifies info about where and how the <Logout Response> message MUST be
         // returned to the requester, in this case our SP.
-        'singleLogoutService' => array (
+        'singleLogoutService' => array(
             // URL Location where the <Response> from the IdP will be returned
             'url' => '',
             // SAML protocol binding to be used when returning the <Response>
@@ -77,25 +77,22 @@ $settings = array (
     ),
 
     // Identity Provider Data that we want connect with our SP
-    'idp' => array (
+    'idp' => array(
         // Identifier of the IdP entity  (must be a URI)
         'entityId' => '',
         // SSO endpoint info of the IdP. (Authentication Request protocol)
-        'singleSignOnService' => array (
+        'singleSignOnService' => array(
             // URL Target of the IdP where the SP will send the Authentication Request Message
             'url' => '',
             // SAML protocol binding to be used when returning the <Response>
             // message.  Onelogin Toolkit supports for this endpoint the
-            // HTTP-Redirect binding only
+            // HTTP-POST binding only
             'binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
         ),
         // SLO endpoint info of the IdP.
-        'singleLogoutService' => array (
+        'singleLogoutService' => array(
             // URL Location of the IdP where the SP will send the SLO Request
             'url' => '',
-            // URL location of the IdP where the SP will send the SLO Response (ResponseLocation)
-            // if not set, url for the SLO Request will be used
-            'responseUrl' => '',
             // SAML protocol binding to be used when returning the <Response>
             // message.  Onelogin Toolkit supports for this endpoint the
             // HTTP-Redirect binding only
