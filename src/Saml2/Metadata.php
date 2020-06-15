@@ -247,20 +247,20 @@ METADATA_TEMPLATE;
 
         $SPSSODescriptor = $xml->getElementsByTagName('SPSSODescriptor')->item(0);
         $SPSSODescriptor->insertBefore($keyDescriptor->cloneNode(), $SPSSODescriptor->firstChild);
-        // if ($wantsEncrypted === true) {
+        if ($wantsEncrypted === true) {
             $SPSSODescriptor->insertBefore($keyDescriptor->cloneNode(), $SPSSODescriptor->firstChild);
-        // }
+        }
 
         $signing = $xml->getElementsByTagName('KeyDescriptor')->item(0);
         $signing->setAttribute('use', 'signing');
         $signing->appendChild($keyInfo);
 
-        // if ($wantsEncrypted === true) {
+        if ($wantsEncrypted === true) {
             $encryption = $xml->getElementsByTagName('KeyDescriptor')->item(1);
             $encryption->setAttribute('use', 'encryption');
 
             $encryption->appendChild($keyInfo->cloneNode(true));
-        // }
+        }
 
         return $xml->saveXML();
     }
