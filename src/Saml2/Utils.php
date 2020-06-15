@@ -285,7 +285,7 @@ class Utils
      *
      * @throws Error
      */
-    public static function redirect($url, array $parameters = array(), $stay = false)
+    public static function redirect($url, array $parameters = array(), $stay = false, $referer = null)
     {
         assert(is_string($url));
 
@@ -337,7 +337,7 @@ class Utils
         if ($stay) {
             return $url;
         }
-
+        header('Referer: '.$referer);
         header('Pragma: no-cache');
         header('Cache-Control: no-cache, must-revalidate');
         header('Location: ' . $url);

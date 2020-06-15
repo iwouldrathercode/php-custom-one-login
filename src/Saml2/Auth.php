@@ -547,7 +547,8 @@ class Auth
             $parameters['SigAlg'] = $security['signatureAlgorithm'];
             $parameters['Signature'] = $signature;
         }
-        return $this->redirectTo($this->getSSOurl(), $parameters, $stay);
+        $referer = parse_url($this->getSSOurl())['host'];
+        return $this->redirectTo($this->getSSOurl(), $parameters, $stay, $referer);
     }
 
     /**
