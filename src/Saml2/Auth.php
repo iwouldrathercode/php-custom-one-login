@@ -343,7 +343,7 @@ class Auth
      *
      * @return string|null
      */
-    public function redirectTo($url = '', array $parameters = array(), $stay = false)
+    public function redirectTo($url = '', array $parameters = array(), $stay = false, $referer = null)
     {
         assert(is_string($url));
 
@@ -351,7 +351,7 @@ class Auth
             $url = $_REQUEST['RelayState'];
         }
 
-        return Utils::redirect($url, $parameters, $stay);
+        return Utils::redirect($url, $parameters, $stay, $referer);
     }
 
     /**
