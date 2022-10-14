@@ -1,11 +1,9 @@
-# OneLogin's SAML PHP Toolkit Compatible with PHP 5.X & 7.X
+# iwouldrathercode/php-custom-one-login
 
-[![Build Status](https://api.travis-ci.org/onelogin/php-saml.png?branch=master)](http://travis-ci.org/onelogin/php-saml) [![Coverage Status](https://coveralls.io/repos/onelogin/php-saml/badge.png)](https://coveralls.io/r/onelogin/php-saml) [![License](https://poser.pugx.org/onelogin/php-saml/license.png)](https://packagist.org/packages/onelogin/php-saml)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/iwouldrathercode/cognito.svg?style=flat-square)](https://packagist.org/packages/iwouldrathercode/php-custom-one-login)
+[![Total Downloads](https://img.shields.io/packagist/dt/iwouldrathercode/cognito.svg?style=flat-square)](https://packagist.org/packages/iwouldrathercode/php-custom-one-login)
 
-Add SAML support to your PHP software using this library.
-Forget those complicated libraries and use this open source library provided
-and supported by OneLogin Inc.
-
+Opinionated fork of OneLogin's SAML PHP Toolkit Compatible with PHP 5.X & 7.X and upgrades for usage as a dependency for the iwouldrathercode/php-simple-ad-connect.
 
 Warning
 -------
